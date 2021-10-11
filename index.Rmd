@@ -1,0 +1,694 @@
+---
+title       : "Speciation"
+subtitle    : "BIOL34014: Comparative Developmental & Evolutionary Genetics"
+author      : Dr Axel Barlow
+job         : "email: axel.barlow@ntu.ac.uk, office: ERD130"
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : zenburn      # {zenburn, tomorrow, solarized-dark, ...}
+widgets     : [quiz]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+logo        : ntu-shield.png
+biglogo     : NTU_open-graph.png
+assets      : {assets: ../../assets}
+license     : by-nc-sa
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(gganimate)
+library(RColorBrewer)
+library(knitr)
+library(DiagrammeR)
+```
+
+<!-- adding bold and italic options -->
+<style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+## Topics of today's lecture
+
+  >1. Species and Species concepts
+  >2. Identifying and describing species
+  >3. Barriers to reproduction
+    + prezygotic
+    + postzygotic
+  >4. The process of speciation
+    + geographic
+    + sympatric
+
+--- .class bg:white
+
+## Species are all the types of organisms that exist
+
+```{r, out.width = "25%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/blackbird_resized.png")
+include_graphics("./assets/img/fish_resized.png")
+include_graphics("./assets/img/rhino_resized.png")
+include_graphics("./assets/img/flowers_resized.png") 
+include_graphics("./assets/img/swallowtail_resized.png")
+include_graphics("./assets/img/achatina_resized.png")
+include_graphics("./assets/img/geochelone_resized.png")
+include_graphics("./assets/img/red_eye_resized.png") 
+include_graphics("./assets/img/snake_resized.png")
+include_graphics("./assets/img/coral_resized.png")
+include_graphics("./assets/img/duck_resized.png")
+include_graphics("./assets/img/mint_resized.png") 
+```
+
+--- &twocol
+
+## Species is the basic unit of biological classification
+
+*** =left
+
+Rank|Example
+----|-------
+Kingdom|Animalia
+Phylum|Chordata
+Class|Mammalia
+Order|Primates
+Family|Hominidae
+Genus|Homo
+Species|sapiens
+
+- Genus + species is the `scientific name`
+- Usually presented in *italics*
+- *Homo sapiens*
+
+*** =right
+
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/human.png")
+```
+
+--- .class #id
+
+## Species knowledge is essential for all biological study
+
+>- **Communication**
+  - What organism?
+>- **Comparing organisms**
+  - Comparing developmental pathways and processes
+>- **Understanding evolution**
+  - Species relationships, gene and trait evolution
+>- **Medicine**
+  - Infectious diseases, Vector biology, Zoonoses
+>- **Conservation**
+  - How many and which species do we conserve?
+
+--- .segue .dark 
+
+## How do we define a species?
+
+--- &vcenter
+
+<q>No one definition (of species) has as yet satisfied all naturalists; yet every naturalist knows vaguely what he means when he speaks of a species (Darwin, 1859)</q>
+
+--- .class #id
+
+## Biological species concept (BSC)
+
+<q>Groups of populations that actually or potentially interbreed with each other (Mayr, 1963)</q>
+
+  >- Populations that cannot reproduce are different species
+  >- Difficult to actually test for many species
+  >- All individuals of uniparental organisms qualify as different species
+  >- Generally impossible to apply to fossils
+  >- Many examples of gene flow between well established species
+
+--- .class #id
+
+## Many other species concepts
+
+Basis | Name | A species is...
+------|------|----------------
+Interbreeding | Biological Species Concept | A group of interbreeding natural populations; reproductively isolated from other groups
+Genetic or phenotypic cohesion | Genotypic Cluster Species Concept | A morphologically or genetically distinct group of individuals; few intermediates when in contact with other groups
+Evolutionary cohesion | Ecological Species Concept | A lineage occupying an adaptive zone minimally different from other lineages; evolves differently from other lineages
+Evolutionary cohesion | Evolutionary Species Concept | A lineage of ancestor-descendant populations maintaining identity from other lineages; shared evolutionary tendencies and fate
+Evolutionary history | Phylogenetic Species Concept 2 | The smallest monophyletic group of common ancestry
+Evolutionary history | Genealogical Species Concept | An exclusive group of organisms all coalescing more recently than outgroup organisms; no exclusive group within
+
+Table adapted from Coyne & Orr (2004), Table 1.1
+
+--- .class #id
+
+## Unified species concept
+
+<q>Separately evolving metapopulation lineages</q>
+
+*De Queiroz, K. Syst. Biol. 56.6 (2007): 879-886.*
+
+  >- Separates species concepts and species evidence
+  >- Things like reproductive isolation are a consequence of separate evolution
+  >- They are ways of identifying species, not a requirement for species
+
+--- .segue .dark 
+
+## How do we identify species?
+
+--- .class #id
+
+## Clearly these are different species
+
+```{r, out.width = "25%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/blackbird_resized.png")
+include_graphics("./assets/img/fish_resized.png")
+include_graphics("./assets/img/rhino_resized.png")
+include_graphics("./assets/img/flowers_resized.png") 
+include_graphics("./assets/img/swallowtail_resized.png")
+include_graphics("./assets/img/achatina_resized.png")
+include_graphics("./assets/img/geochelone_resized.png")
+include_graphics("./assets/img/red_eye_resized.png") 
+include_graphics("./assets/img/snake_resized.png")
+include_graphics("./assets/img/coral_resized.png")
+include_graphics("./assets/img/duck_resized.png")
+include_graphics("./assets/img/mint_resized.png") 
+```
+
+--- .class #id
+
+## Quiz!
+
+- Same or different species?
+- What is/are the species?
+- Post your answers in the chat
+
+--- &twocol
+
+## But what about these?
+
+*** =left
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/marsh_tit_resized.png")
+```
+  >- Marsh tit  
+  (*Poecile palustris*)
+
+*** =right
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/willow_tit_resized.png")
+```
+  >- Willow tit  
+  (*Poecile montanus*)
+
+--- &twocol
+
+## And these?
+
+*** =left
+```{r wdb, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/WDB3.JPG")
+```
+  >- Western diamondback rattlesnake  
+  (*Crotalus atrox*)
+
+*** =right
+```{r scute, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/scute.JPG")
+```
+  >- Mojave rattlesnake  
+  (*Crotalus scutulatus*)
+
+--- &twocol
+
+## And what about these?
+
+*** =left
+```{r adderM, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/adder1_resized.png")
+```
+
+  >- Same species (sexual dimorphism)  
+  adder (*Vipera berus*)
+
+*** =right
+```{r adderF, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/adder3_resized.png")
+```
+
+--- &twocol
+
+## These?
+
+*** =left
+```{r, out.width = "85%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/hooded-crow-4478113.jpg")
+include_graphics("./assets/img/carrion_crow2_crop.png")
+```
+
+*** =right
+```{r, out.width = "60%", dpi = 300, echo = FALSE}
+  include_graphics("./assets/img/Distribution_of_carrion_and_hooded_crows_across_Europe.png")
+```
+
+*Cruithne9, CC BY-SA 4.0*
+
+  >- Same species (geographic variation)  
+  - Hooded/carrion crows (*Corvus corone*)
+  - gene flow with sexual selection
+
+--- &twocol
+
+## And what about these?
+
+*** =left
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/boarpiglet-2256293.jpg")
+```
+
+  >- Same species (ontogenetic variation)  
+  - Wild boar (*Sus scrofa*)
+
+*** =right
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/boar-4735586.jpg")
+```
+
+--- &twocol
+
+## These?
+
+*** =left
+```{r, out.width = "80%", dpi = 300, echo = FALSE, fig.align='center'}
+include_graphics("./assets/img/Pipistrellus_female-1.jpg")
+```
+
+*Drahkrub, CC BY-SA 4.0*
+
+  >- Common pipistrelle 
+  - *Pipistrellus pipistrellus*
+  - Echolocates at 45 kHz
+
+*** =right
+```{r, out.width = "80%", dpi = 300, echo = FALSE, fig.align='center'}
+include_graphics("./assets/img/Pipistrellus_pygmaeus01.jpg")
+```
+
+*Evgeniy Yakhontov, CC BY-SA 3.0*
+
+  >- Soprano pipistrelle
+  - *Pipistrellus pygmaeus*
+  - Echolocates at 55 kHz
+  - Discovered in 1999
+
+--- &twocol
+
+## And finally these?
+
+*** =left
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/seatroutWst_meerforelle_stoer_001.jpg")
+```
+
+  >- Same species (phenotypic plasticity)  
+  - brown trout (*Salmo trutta*)
+
+*** =right
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/Salmo_trutta_Ozeaneum_Stralsund_HBP_2010-07-02.jpg")
+```
+
+--- .segue .dark 
+
+## Who decides which species are different?
+
+--- .class #id
+
+## Taxonomy: the science of naming species
+
+  >- Taxonomists gather data from natural populations
+  >- Traditionally this would be morphological data
+  >- Distinct categories suggest separately evolving groups
+  >- Complicated by:
+    + geographic and ontogenetic variation, sexual dimorphism and phenotypic plasticity
+  >- Modern taxonomy seeks additional lines of evidence: 
+    + genetics, behaviour, ecology
+  >- Sometimes this reveal `cryptic species`, which lack clear morphological separation
+
+--- &twocol bg:white
+
+## African forest cobras (*Naja melanoleuca* complex)
+
+*** =left
+- Geographical variation
+- No clear categories
+- Genetic analysis reveals 5 cryptic species
+
+```{r, out.width = "100%", out.height = "60%", fig.width = 9, fig.height = 7, dpi = 600, fig.align = "center", echo = FALSE}
+
+pco <- read_csv("./data/cobra_pco.csv",
+  col_types= cols(
+    sample = col_character(),
+    species = col_character(),
+    pco1 = col_double(),
+    pco2 = col_double()
+  )
+)
+
+pco_plot <- ggplot(pco) +
+  geom_point(aes(x = pco1, y = pco2, colour = species), cex=5) +
+  scale_colour_brewer(palette="Dark2") +
+  theme_bw(base_size = 25)
+
+pco_plot
+```
+
+*** =right
+```{r savan, out.width = "70%", dpi = 300, echo = FALSE, fig.align='center'}
+include_graphics("./assets/img/savannula.png")
+include_graphics("./assets/img/melanoleuca.png")
+```
+
+--- .segue .dark 
+
+## What keeps species separate?
+
+--- .class #id
+
+## Barriers to reproduction
+
+- Some barrier must exist that stops individuals of different species from (frequently) reproducing
+- Otherwise, 2 species would fuse into 1 species when they come into contact
+- We classify these barriers as `prezygotic` or `postzygotic`
+- `Prezygotic` barriers prevent fertilisation, and can be pre- or post-mating
+- `Postzygotic` barriers prevent hybrid offspring from reproducing
+
+--- .class #id
+
+## Prezygotic barriers can be:
+
+- Ecological
+- Temporal
+- Behavioural
+- Mechanical
+- Gamete incompatibility
+- and more...
+
+--- &twocol
+
+## Prezygotic barriers: monkeyflowers
+
+*** =left
+```{r, out.width = "90%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/mimulus1.png")
+```
+
+*Curtis Clark, CC BY-SA 2.5*
+
+- Scarlet monkeyflower
+- *Erythranthe cardinalis*
+- Hummingbird pollinated
+
+*** =right
+```{r, out.width = "90%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/mimulus2.png")
+```
+
+*Walter Siegmund , CC BY-SA 3.0*
+
+- Lewis' monkeyflower
+- *Erythranthe lewisii*
+- Bee pollinated
+
+--- &twocol
+
+## Prezygotic barriers: bears
+
+- Living in different habitats and locations also prevents mating
+
+*** =left
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/brown-bear-1622667.jpg")
+```
+
+- Brown bear
+- *Ursus arctos*
+
+*** =right
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/polar-bear-404314.jpg")
+```
+
+- Polar bear
+- *Ursus maritimus*
+
+--- &twocol
+
+## Prezygotic barriers: sea urchins
+
+*** =left
+- Sea urchins, genus *Strongylocentrotus*
+- Broadcast spawners
+- Interspecies gamete incompatibility
+
+*** =right
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/Strongylocentrotus_franciscanus_&_Strongylocentrotus_droebachiensis.jpg")
+```
+
+*Ed Bierman, CC BY-SA 2.0*
+
+--- &vcenter
+
+## Courtship also functions as a prezygotic barrier
+
+```{r, out.width = "75%", dpi = 300, echo = FALSE, fig.align='center'}
+include_graphics("./assets/img/peacock-2363750.jpg")
+```
+
+--- .class #id
+
+## Postzygotic barriers can involve:
+
+- Hybrid sterility
+- Hybrid inviability
+- Sexual selection
+- and more...
+
+--- &twocol
+
+## Postzygotic barriers: bovids
+
+- European bison and domestic cattle can interbreed, but the male offspring are sterile
+- This is known as `Haldane's Rule` (heterogametic sex is infertile)
+
+*** =left
+```{r, out.width = "100%", dpi = 300, echo = FALSE, fig.align='center'}
+include_graphics("./assets/img/bison-4862865.jpg")
+```
+European bison
+*Bison bonasus*
+
+*** =right
+```{r, out.width = "100%", dpi = 300, echo = FALSE, fig.align='center'}
+include_graphics("./assets/img/cows-4270352.jpg")
+```
+Domestic cattle
+
+--- &twocol
+
+## Postzygotic barriers: flycatchers
+
+- Female hybrids are sterile
+- Male hybrids have low reproductive success due to `sexual selection`
+
+*** =left
+```{r, out.width = "50%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/pied_flycatcher.jpg")
+```
+
+*Mark Medcalf, CC BY 2.0*
+- Pied flycatcher, *Ficedula hypoleuca*
+
+*** =right
+```{r, out.width = "90%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/collared.png")
+```
+*https://www.flickr.com/photos/andrej_chudy, CC BY-SA 2.0*
+- Collared flycatcher, *Ficedula albicollis*
+
+--- .segue .dark 
+
+## How do species originate?
+
+--- .class #id
+
+## Modes of speciation
+
+>- A single species diverges in two (or more) descendant species
+- This is called `speciation`
+- Thought to generally take a long time
+- But examples of rapid speciation exist
+- We recognise 2 major categories:
+  + `Geographic`: involving spatial separation
+  + `Sympatric`: occurring in a single location
+
+--- .class #id
+
+## Geographic speciation
+
+>- Several subcategories are recognised:
+- `Allopatric` speciation involving complete geographic isolation
+  + Can be termed `vicariance` when the descendant populations are large
+  + Or `peripatry` when a small subpopulation is isolated
+- `Parapatric` speciation involves geographically adjacent with a contact zone
+
+--- .class #id
+
+## Allopatric speciation: vicariance
+
+- Glacial climates caused vicariance in Europe
+- Isolation of temperate species in southern refugia
+- Promoted allopatric speciation
+- E.g. grass snakes, *Natrix helvetica* (western) and *Natrix natrix* (eastern)
+
+```{r, out.width = "100%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/natrix_LGM_montage.png")
+```
+*LGM map, Ulamm, CC BY-SA 3.0*
+
+--- .class #id
+
+## Allopatric speciation: peripatry
+
+- Many examples along island archipelagos: overseas dispersal and colonisation
+- E.g. *Anolis* lizards of the Lesser Antilles
+
+```{r, out.width = "70%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/LA_anoles_montage.png")
+```
+
+--- &twocol
+
+## Parapatric speciation
+
+- involves geographically adjacent populations
+- Can result in `ring species`, e.g. *Larus* gulls: 1. L. fuscus, 2.Siberian L. fuscus, 3. L. heuglini, 4. L. vegae birulai, 5. L. vegae, 6. L. smithsonianus, 7 L. argentatus
+
+*** =left
+
+```{r, out.width = "70%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/herring_LBB_gulls.jpeg")
+```
+
+*Tomasz Sienick, CC BY 2.5*
+
+*** =right
+
+```{r, out.width = "60%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/Ring_species_seagull.svg")
+```
+
+*Frédéric MICHEL, CC BY 3.0*
+
+--- .class #id
+
+## Sympatric speciation
+
+>- A single species diverges into two without a geographic barrier
+- Historically controversial, but several examples are now known
+- Typically thought to result from `disruptive selection`
+  + selection favours extreme phenotypes
+  + for example due to ecological niche divergence
+  + can be reinforced by reproductive barriers, for e.g. sexual selection
+
+--- .class bg:white
+
+## Disruptive selection
+
+- Selection favours extreme phenotypes
+- Produces distinct phenotypic categories, or ecotypes
+- Preferential mating within ecotypes can lead to sympatric speciation
+
+```{r, echo = FALSE}
+df1 <- enframe(rnorm(750, 10, 3))
+df2 <- enframe(rnorm(500, 5, 2))
+df3 <- enframe(rnorm(500, 15, 2))
+
+df1$distribution <- "d1"
+df2$distribution <- "d2"
+df3$distribution <- "d2"
+
+two_dist <- rbind(df1, df2, df3)
+
+plot <- ggplot(two_dist) +
+  geom_histogram(aes(x = value), binwidth = 1, colour = "black", fill = "coral") +
+  theme_bw(base_size = 20) +
+  theme(axis.text = element_blank()) +
+  labs(x="Phenotypic trait", y="fitness")
+```
+
+```{r, out.width = "90%", out.height = "80%", fig.width = 12, fig.height = 5, dpi = 600, echo = FALSE}
+anim <- plot +
+  transition_states(distribution, 
+    transition_length = 1,
+    state_length = 1
+  ) +
+  ease_aes('cubic-in-out')
+
+anim
+```
+
+--- &twocol
+
+## Parapatric speciation: apple maggot
+
+*** =left
+
+- Apple maggot, *Rhagoletis pomonella*
+- Apple-feeding populations arose ~200 years ago
+- Ecological niche divergence
+
+```{r, out.width = "85%", dpi = 300, echo = FALSE}
+include_graphics("./assets/img/Rhagoletis_pomonella.jpg")
+```
+
+*Joseph Berger, CC BY 3.0*
+
+*** =right
+
+```{r, out.width = "75%", dpi = 300, echo = FALSE, fig.align='center'}
+include_graphics("./assets/img/apple-2788599.jpg")
+include_graphics("./assets/img/hawthorn-3653330.jpg")
+
+```
+
+--- .class bg:white
+
+## Sympatric speciation: Lake Victoria
+
+```{r, out.width = "53%", dpi = 300, echo = FALSE, fig.align='center'}
+include_graphics("./assets/img/cichlid.png")
+```
+
+*Meier et al. 2017. Nat. Comms. CC BY 4.0*
+
+--- .class bg:white
+
+## Now you should know:
+
+  1. Species and Species concepts
+  2. Identifying and describing species
+  3. Barriers to reproduction
+    + prezygotic
+    + postzygotic
+  4. The process of speciation
+    + geographic
+    + sympatric
+
+--- &thankyou
+
+## Next time
+
+**Junk DNA**
+
+
